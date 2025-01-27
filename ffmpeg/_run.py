@@ -6,6 +6,7 @@ from functools import reduce
 import copy
 import operator
 import subprocess
+from subprocess import CREATE_NO_WINDOW
 
 from ._ffmpeg import input, output
 from .nodes import (
@@ -326,6 +327,7 @@ def run(
         cmd,
         pipe_stdin=input is not None,
         pipe_stdout=capture_stdout,
+        creationflags=CREATE_NO_WINDOW,
         pipe_stderr=capture_stderr,
         quiet=quiet,
         overwrite_output=overwrite_output,
